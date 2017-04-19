@@ -7,7 +7,7 @@ import urllib
 import logging
 
 from django.conf import settings
-from django.http import HttpResponsePermanentRedirect
+from django.http import HttpResponsePermanentRedirect, HttpResponse
 #from rest_framework.viewsets import ModelViewSet
 from django.shortcuts import render
 from django.urls import reverse
@@ -25,3 +25,7 @@ class IndexView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
         return context
+
+class Portfolio(TemplateView):
+    def get(self, request):
+        return HttpResponse("Here's the text of the Web page.")
